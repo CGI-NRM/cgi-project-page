@@ -7,10 +7,11 @@ const listOfProjects = JSON.parse(JSON.stringify(dataInJson))
 
 // Column ID's
     // id 1 = Incoming --> NOT relevant since they need a dnr to search
-    // id 2 = To be started
-    // id 176 = On going
-    // id 134 = Lab-work done
-    // id 177 = In analysis
+    // id 2 = Priority order
+    // id 176 = Lab
+    // id 134 = Waiting for data
+    // id 236 = Analysis pending
+    // id 177 = Analysis and report
     // id 3 = Finished projects
     // id 4 = Invoiced projects
 
@@ -19,8 +20,9 @@ const statuses = {
     id2: "Vi har mottagit proverna, men inte börjat arbeta med dem.",
     id176: "Vi har börjat arbeta med proverna i labbet.",
     id134: "V är klara med proverna i labbet. Om sekvensering ingår i projektet så har proverna skickats till sekvenseringscenter.",
-    id177: "Vi har fått resultat från sekvenseringen och analyserar dessa.",
-    id13: "Projektet är klart.",
+    id236: "Vi har tagit emot data från sekvenseringscentret men inte börjat analysera den än.",
+    id177: "Datan håller på att analyseras och sammanställas i en rapport.",
+    id3: "Projektet är klart",
     id4: "Projektet har fakturerats.",
 }
 /*
@@ -176,6 +178,10 @@ input.addEventListener("keypress", function (event) {
                     case "134":
                         console.log("ID: 134");
                         addStatusSection(current_dnr, statuses.id134);
+                        break;
+                    case "236":
+                        console.log("ID: 236");
+                        addStatusSection(current_dnr, statuses.id236);
                         break;
                     case "177":
                         console.log("ID: 177");
